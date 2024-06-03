@@ -1,0 +1,27 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# Node artifact files
+node_modules/
+dist/
+
+# VS Code extensions
+extensions.json
+launch.json
+tasks.json
+settings.json
+
+# Terraform tfstate
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+modules.json
+
+# Secrets
+*.pem
+
+# Config env.tfvars
+*.tfvars
+README.md

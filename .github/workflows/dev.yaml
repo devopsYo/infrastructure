@@ -1,0 +1,54 @@
+name: dev
+on: [push]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+
+#variables:
+#- group: clarins-variables-group
+#pool:
+#  name: Default
+#stages:
+#- stage: Build
+#  jobs:
+#  - job: Build
+#    timeoutInMinutes: 360
+#    steps:
+#      - task: DownloadSecureFile@1
+#        name: tfvars
+#        displayName: 'Download secure vars env file'
+#        inputs:
+#          secureFile: $(env).tfvars
+#      - task: PowerShell@2
+#        inputs:
+#          targetType: 'filePath'
+#          pwsh: true
+#          filePath: $(PowershellDirectory)/create-account-storage.ps1
+#          displayName: 'Create account storage for tfstate'
+#      - task: PowerShell@2
+#        inputs:
+#          targetType: 'filePath'
+#          pwsh: true
+#          filePath: $(PowershellDirectory)/init-terraform.ps1
+#          displayName: 'Init Terraform'
+#          workingDirectory: $(TerraformDirectory)/env/$(env)
+#      - task: PowerShell@2
+#        inputs:
+#          targetType: 'filePath'
+#          pwsh: true
+#          filePath: $(PowershellDirectory)/plan-terraform.ps1
+#          displayName: 'Plan Terraform'
+#          workingDirectory: $(TerraformDirectory)/env/$(env)
+#      - task: PowerShell@2
+#        inputs:
+#          targetType: 'filePath'
+#          pwsh: true
+#          filePath: $(PowershellDirectory)/apply-terraform.ps1
+#          displayName: 'Apply Terraform'
+#          workingDirectory: $(TerraformDirectory)/env/$(env)

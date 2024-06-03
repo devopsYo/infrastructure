@@ -1,0 +1,20 @@
+#cloud-config
+package_upgrade: true
+
+packages:
+  - xfce4
+  - xfce4-session
+  - xrdp
+  - wget
+
+write_files:
+  - owner: 'azureuser:azureuser'
+    path: /home/azureuser/.xsession
+    permissions: '0644'
+    defer: true
+    content: |
+      xfce4-session
+
+runcmd:
+  - systemctl enable xrdp
+  - adduser xrdp ssl-cert

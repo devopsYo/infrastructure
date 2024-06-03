@@ -1,0 +1,25 @@
+#cloud-config
+package_upgrade: true
+
+packages:
+  - wget
+
+write_files:
+  - path: /etc/apt/sources.list.d/elastic-8.x.list
+    content: |
+      deb https://artifacts.elastic.co/packages/8.x/apt stable main
+runcmd:
+  - wget -qO- https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
+  - apt-get update && apt-get install elasticsearch
+  - /bin/systemctl daemon-reload
+  - /bin/systemctl enable elasticsearch.service
+  - systemctl start elasticsearch.service
+  - apt-get update && apt-get install kibana
+  - /usr/bin/systemctl daemon-reload
+  - /usr/bin/systemctl enable kibana.service
+  - apt-get update && apt-get install logstash
+  - systemctl start logstash.service
+
+
+  
+
