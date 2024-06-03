@@ -10,8 +10,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Create account storage
         run: |
-          chmod +x ./sh/create-account-storage.sh
-          ./sh/create-account-storage.sh
+          chmod +x ${{ vars.SHELL_DIRECTORY }}/create-account-storage.sh
+          ${{ vars.SHELL_DIRECTORY }}/create-account-storage.sh
 
 #      - task: PowerShell@2
 #        inputs:
