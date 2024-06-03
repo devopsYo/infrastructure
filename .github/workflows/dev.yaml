@@ -3,15 +3,34 @@ on: [push]
 jobs:
   Build:
     runs-on: ubuntu-latest
+    environment: DEV
     steps:
       - uses: actions/checkout@v4
       - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Create account storage
+      - name: 'Create account storage for tfstate'
         run: |
           chmod +x ${{ vars.SHELL_DIRECTORY }}/create-account-storage.sh
           ${{ vars.SHELL_DIRECTORY }}/create-account-storage.sh
+          
+      - name: 'Init Terraform'
+        run: |
+          chmod +x ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
+          ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/$(env)
+
+      - name: 'Plan Terraform'
+        run: |
+          chmod +x ${{ vars.SHELL_DIRECTORY }}/plan-terraform.sh
+          ${{ vars.SHELL_DIRECTORY }}/plan-terraform.sh
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/$(env)
+
+      - name: 'Apply Terraform'
+        run: |
+          chmod +x ${{ vars.SHELL_DIRECTORY }}/apply-terraform.sh
+          ${{ vars.SHELL_DIRECTORY }}/apply-terraform.sh
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/$(env)
 
 #      - task: PowerShell@2
 #        inputs:
