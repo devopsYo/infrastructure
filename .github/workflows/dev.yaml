@@ -8,23 +8,11 @@ jobs:
       - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Create account storage
+        run: |
+          chmod +x ./sh/create-account-storage.sh
+          ./sh/create-account-storage.sh
 
-
-#variables:
-#- group: clarins-variables-group
-#pool:
-#  name: Default
-#stages:
-#- stage: Build
-#  jobs:
-#  - job: Build
-#    timeoutInMinutes: 360
-#    steps:
-#      - task: DownloadSecureFile@1
-#        name: tfvars
-#        displayName: 'Download secure vars env file'
-#        inputs:
-#          secureFile: $(env).tfvars
 #      - task: PowerShell@2
 #        inputs:
 #          targetType: 'filePath'

@@ -23,5 +23,5 @@ modules.json
 *.pem
 
 # Config env.tfvars
-*.tfvars
+#*.tfvars
 README.md
