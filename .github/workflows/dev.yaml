@@ -18,19 +18,19 @@ jobs:
         run: |
           chmod +x ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
           ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
-        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ ENV }}
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ vars.ENV }}
 
       - name: 'Plan Terraform'
         run: |
           chmod +x ${{ vars.SHELL_DIRECTORY }}/plan-terraform.sh
           ${{ vars.SHELL_DIRECTORY }}/plan-terraform.sh
-        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ ENV }}
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ vars.ENV }}
 
       - name: 'Apply Terraform'
         run: |
           chmod +x ${{ vars.SHELL_DIRECTORY }}/apply-terraform.sh
           ${{ vars.SHELL_DIRECTORY }}/apply-terraform.sh
-        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ ENV }}
+        working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ vars.ENV }}
 
 #      - task: PowerShell@2
 #        inputs:
