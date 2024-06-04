@@ -154,7 +154,7 @@ module "WebApp" {
   count                                         = length(var.infra_config.plaque_list)
   web_app_config                                = var.infra_config.plaque_list[count.index].web_app_config  
   web_app_config_dependency                     = {
-      service_plan_id                           = module.Ase[count.index].AppServicePlan.id
+      service_plan_id                           = module.Asp[count.index].AppServicePlan.id
       app_settings                              = merge(
         var.infra_config.plaque_list[count.index].web_app_config.app_settings,
         module.AppInsights[count.index].AppSettings
