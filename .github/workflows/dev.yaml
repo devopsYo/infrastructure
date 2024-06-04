@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DEV
     env:
+      ENV: ${{ vars.ENV }}
       RESSOURCE_GROUP_MGMT: ${{ vars.RESSOURCE_GROUP_MGMT }}
       STORAGE_ACCOUNT_MGMT: ${{ vars.STORAGE_ACCOUNT_MGMT }}
       LOCATION_MGMT: ${{ vars.LOCATION_MGMT }}
