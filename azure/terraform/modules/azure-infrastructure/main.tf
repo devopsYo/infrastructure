@@ -137,6 +137,16 @@ module "StorageAccountList" {
   ]
 }
 
+module "Ase" {
+  source                                        = "../../modules/azure-ase"
+  count                                         = length(var.infra_config.plaque_list)
+  ase_config                                    = var.infra_config.plaque_list[count.index].ase_config
+  rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
+  depends_on                                    = [
+    module.ResourceGroup.Current,
+  ]
+}
+
 
 
 module "WebApp" {
@@ -144,6 +154,7 @@ module "WebApp" {
   count                                         = length(var.infra_config.plaque_list)
   web_app_config                                = var.infra_config.plaque_list[count.index].web_app_config  
   web_app_config_dependency                     = {
+      service_plan_id                           = module.Ase[count.index].AppServicePlan.id
       app_settings                              = merge(
         var.infra_config.plaque_list[count.index].web_app_config.app_settings,
         module.AppInsights[count.index].AppSettings

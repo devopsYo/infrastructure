@@ -11,12 +11,6 @@ variable "ase_config" {
 }
 
 
- variable "ase_config_dependency" {
-    type = object({
-        subnet_id          = string
-    })
- }
-
 variable "rg_config" {
     type = object({
         name                            = string
