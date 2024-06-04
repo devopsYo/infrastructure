@@ -143,7 +143,16 @@ variable "infra_config" {
                 account_replication_type                      = string
                 network_rules_default_action                  = string  
                 public_network_access_enabled                 = bool                            
-            }))             
+            }))  
+            ase_config                  = object({           
+                name                                          = string
+                internal_load_balancing_mode                  = string
+                zone_redundant                                = bool
+                asp_name                                      = string
+                asp_os_type                                   = string
+                asp_sku_name                                  = string 
+                worker_count                                  = number            
+            })             
             web_app_config                  = object({
                 name                                          = string
                 https_only                                    = bool

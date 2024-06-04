@@ -123,7 +123,16 @@ config = {
             account_replication_type                     = "LRS"
             network_rules_default_action                 = "Deny"   
             public_network_access_enabled                = false                             
-        }]      
+        }]   
+        ase_config                   = {         
+            name                                         = "ase-001"
+            internal_load_balancing_mode                 = "Web, Publishing"
+            zone_redundant                               = false
+            asp_name                                     = "ase-001-asp"
+            asp_os_type                                  = "Linux"
+            asp_sku_name                                 = "I1v2"
+            worker_count                                 = 1
+        }     
         web_app_config               = {     
             name                                         = "wapp-001"
             https_only                                   = true
