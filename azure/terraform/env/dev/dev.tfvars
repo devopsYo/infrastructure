@@ -116,7 +116,7 @@ config = {
             public_ip_allocation_method                  = "Static"
         }     
         storage_account_list_config = [{     
-            name                                         = "lvfralphaconfiguratorsaexp001"
+            name                                         = "lvfralphaconfiguratorsa"
             private_dns_zone_suffix                      = ".blob.core.windows.net"
             private_dns_zone_virtual_network_link_name   = "dns-zone-vnet-link"
             account_tier                                 = "Standard"
