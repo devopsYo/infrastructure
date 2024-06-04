@@ -10,6 +10,12 @@ jobs:
       LOCATION_MGMT: ${{ vars.LOCATION_MGMT }}
       CONTAINER_TF_NAME: ${{ vars.CONTAINER_TF_NAME }}
       SUBSCRIPTION_NAME: ${{ vars.SUBSCRIPTION_NAME }}
+      ARM_USE_AZUREAD:  true
+      ARM_CLIENT_ID: "24e22525-a0e0-4244-8c6c-faa88c6264f7"
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: "a481f761-3f3d-439f-b737-6e08a56eab93"
+      ARM_TENANT_ID: "e6f11c7d-0d9a-4a35-a112-8b8c24f2b5f4"
+
     steps:
       - uses: actions/checkout@v4
       - uses: azure/login@v2
