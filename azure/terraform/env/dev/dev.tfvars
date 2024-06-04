@@ -3,9 +3,9 @@ config = {
     plaque_list = [   
     {      
         rg_config                     = {   
-            prefix                                     = "lv-fr-alpha"
+            prefix                                     = "lv"
             location                                   = "France Central"
-            name                                       = "rg"  
+            name                                       = "dev"  
         }             
         vnet_config                   = {     
             name                                         = "vnet-001"
@@ -116,14 +116,33 @@ config = {
             public_ip_allocation_method                  = "Static"
         }     
         storage_account_list_config = [{     
-            name                                         = "lvfralphaconfiguratorsa"
+            name                                         = "lvconfiguratorsadev"
             private_dns_zone_suffix                      = ".blob.core.windows.net"
             private_dns_zone_virtual_network_link_name   = "dns-zone-vnet-link"
             account_tier                                 = "Standard"
             account_replication_type                     = "LRS"
             network_rules_default_action                 = "Deny"   
             public_network_access_enabled                = false                             
-        }]   
+        },
+        {
+            name                                         = "lvpublicsadev"
+            private_dns_zone_suffix                      = ".blob.core.windows.net"
+            private_dns_zone_virtual_network_link_name   = "dns-zone-vnet-link"
+            account_tier                                 = "Standard"
+            account_replication_type                     = "LRS"
+            network_rules_default_action                 = "Deny"   
+            public_network_access_enabled                = false  
+        },
+        {
+            name                                         = "lvkittingsadev"
+            private_dns_zone_suffix                      = ".blob.core.windows.net"
+            private_dns_zone_virtual_network_link_name   = "dns-zone-vnet-link"
+            account_tier                                 = "Standard"
+            account_replication_type                     = "LRS"
+            network_rules_default_action                 = "Deny"   
+            public_network_access_enabled                = false  
+        }
+        ]   
         asp_config                   = {         
             name                                     = "asp"
             os_type                                  = "Linux"
@@ -131,12 +150,12 @@ config = {
             worker_count                                 = 1
         }     
         web_app_config               = {     
-            name                                         = "wapp"
+            name                                         = "configurator-wa"
             https_only                                   = true
             always_on                                    = false
             minimum_tls_version                          = "1.2"
             container_registry_use_managed_identity      = true
-            docker_image                                 = "lv-fr.azurecr.io/threekit-alpha-internal"
+            docker_image                                 = "lv-fr.azurecr.io/configurator-wa"
             docker_image_tag                             = "latest"
             identity_type                                = "UserAssigned"
             node_version                                 = "20-lts"
@@ -144,7 +163,7 @@ config = {
             }
         }
         app_insights_config              = {
-            name                                    = "app-insights-001"
+            name                                    = "app-insights"
             application_type                        = "Node.JS"
         }
         kv_config                               = {
