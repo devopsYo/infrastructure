@@ -10,12 +10,6 @@ variable "storage_account_config" {
     })
 }
 
-#variable "storage_account_config_dependency" {
-#    type = optional(object({
-#        subnet_id                     = string
-#        virtual_network_id            = string
-#    }))
-#} 
  
 variable "rg_config" { 
     type = object({ 

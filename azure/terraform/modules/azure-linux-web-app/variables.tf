@@ -9,19 +9,6 @@ variable "web_app_config" {
         docker_image_tag                              = string
         identity_type                                 = string
         node_version                                  = string  
-        auth_settings_v2                              = object({
-            auth_enabled                                          = bool
-            require_authentication                                = bool
-            unauthenticated_action                                = string
-            login                                                 = object ({
-                token_store_enabled                                           = bool
-            })
-            active_directory_v2                                   = object({
-                client_id                                             = string
-                tenant_auth_endpoint                                  = string
-                client_secret_setting_name                            = string
-            })
-        })
     })
 }
 
