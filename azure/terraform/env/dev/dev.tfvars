@@ -3,7 +3,7 @@ config = {
     plaque_list = [   
     {      
         rg_config                     = {   
-            prefix                                     = "lv-fr"
+            prefix                                     = "lv-fr-alpha-configurator"
             location                                   = "France Central"
             name                                       = "rg-001"  
         }             
@@ -116,7 +116,7 @@ config = {
             public_ip_allocation_method                  = "Static"
         }     
         storage_account_list_config = [{     
-            name                                         = "lvfrsaexp001"
+            name                                         = "lvfralphaconfiguratorsaexp001"
             private_dns_zone_suffix                      = ".blob.core.windows.net"
             private_dns_zone_virtual_network_link_name   = "dns-zone-vnet-link"
             account_tier                                 = "Standard"
@@ -134,7 +134,7 @@ config = {
             worker_count                                 = 1
         }     
         web_app_config               = {     
-            name                                         = "alpha-configurator-wapp-001"
+            name                                         = "wapp-001"
             https_only                                   = true
             always_on                                    = false
             minimum_tls_version                          = "1.2"
@@ -151,7 +151,7 @@ config = {
             application_type                        = "Node.JS"
         }
         kv_config                               = {
-            name                                       = "lv-fr-kv-001"
+            name                                       = "kv-001"
             private_dns_zone_suffix                    = ".vault.azure.net"
             private_dns_zone_virtual_network_link_name = "dns-zone-vnet-link"
             enabled_for_disk_encryption                = true
