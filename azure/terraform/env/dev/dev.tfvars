@@ -3,7 +3,7 @@ config = {
     plaque_list = [   
     {      
         rg_config                     = {   
-            prefix                                     = "lv-fr-alpha-configurator"
+            prefix                                     = "lv-fr-alpha"
             location                                   = "France Central"
             name                                       = "rg-001"  
         }             
@@ -134,7 +134,7 @@ config = {
             worker_count                                 = 1
         }     
         web_app_config               = {     
-            name                                         = "wapp-001"
+            name                                         = "wapp"
             https_only                                   = true
             always_on                                    = false
             minimum_tls_version                          = "1.2"
@@ -151,7 +151,7 @@ config = {
             application_type                        = "Node.JS"
         }
         kv_config                               = {
-            name                                       = "kv-001"
+            name                                       = "kv"
             private_dns_zone_suffix                    = ".vault.azure.net"
             private_dns_zone_virtual_network_link_name = "dns-zone-vnet-link"
             enabled_for_disk_encryption                = true
