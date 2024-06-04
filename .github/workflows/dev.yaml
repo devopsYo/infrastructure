@@ -16,6 +16,8 @@ jobs:
           
       - name: 'Init Terraform'
         run: |
+          pwd 
+          ls
           chmod +x ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
           ${{ vars.SHELL_DIRECTORY }}/init-terraform.sh
         working-directory: ${{ vars.TERRAFORM_DIRECTORY }}/env/${{ vars.ENV }}
