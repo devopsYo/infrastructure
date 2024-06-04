@@ -184,10 +184,6 @@ module "KeyVault" {
   source                                        = "../../modules/azure-key-vault"
   count                                         = length(var.infra_config.plaque_list)
   kv_config                                     = var.infra_config.plaque_list[count.index].kv_config
-  kv_config_dependency            = {
-    subnet_id                                        = module.SubnetSec[count.index].Current.id
-    virtual_network_id                               = module.Vnet[count.index].Current.id
-  }
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
   depends_on                                    = [
     module.ResourceGroup.Current

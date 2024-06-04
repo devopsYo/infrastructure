@@ -27,10 +27,11 @@ variable "rg_config" {
         prefix                                     = string 
     })
 }
-
+/*
 variable "kv_config_dependency" {
     type = object({
         subnet_id                                  = string
         virtual_network_id                         = string
     })
 }
+*/

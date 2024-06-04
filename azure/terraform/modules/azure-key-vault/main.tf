@@ -19,6 +19,7 @@ resource "azurerm_key_vault" "KeyVault" {
   }
 }
 
+/*
 module "PrivateEndpoint" {
   source                                        = "../../modules/azure-private-endpoint"
   count                                         = var.kv_config.private_endpoint_enable
@@ -47,3 +48,4 @@ module "PrivateDnsZoneVirtualNetworkLink" {
   }
   rg_config                                        = var.rg_config
 }
+*/
