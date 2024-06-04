@@ -132,8 +132,6 @@ module "StorageAccountList" {
   count                                         = length(var.infra_config.plaque_list)
   storage_account_list_config                   = var.infra_config.plaque_list[count.index].storage_account_list_config
   storage_account_config_dependency            = {
-    subnet_id                                       = module.SubnetPrv[count.index].Current.id
-    virtual_network_id                              = module.Vnet[count.index].Current.id
   }
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
   depends_on                                    = [
