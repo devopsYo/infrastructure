@@ -4,6 +4,12 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     environment: DEV
+    env:
+      RESSOURCE_GROUP_MGMT: ${{ vars.RESSOURCE_GROUP_MGMT }}
+      STORAGE_ACCOUNT_MGMT: ${{ vars.STORAGE_ACCOUNT_MGMT }}
+      LOCATION_MGMT: ${{ vars.LOCATION_MGMT }}
+      CONTAINER_TF_NAME: ${{ vars.CONTAINER_TF_NAME }}
+      SUBSCRIPTION_NAME: ${{ vars.SUBSCRIPTION_NAME }}
     steps:
       - uses: actions/checkout@v4
       - uses: azure/login@v2
