@@ -30,10 +30,6 @@ variable "fcn_app_config_dependency" {
         identity_ids                           = list(string)
         application_insights_connection_string = string                                                                                                        
         application_insights_key               = string
-        storage_account_config_dependency      = optional(object({
-            subnet_id                     = string
-            virtual_network_id            = string
-        }))
     })
 }
 

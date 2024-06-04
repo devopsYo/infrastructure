@@ -131,7 +131,6 @@ module "StorageAccountList" {
   source                                        = "../../modules/azure-storage-account-list"
   count                                         = length(var.infra_config.plaque_list)
   storage_account_list_config                   = var.infra_config.plaque_list[count.index].storage_account_list_config
-  storage_account_config_dependency             = null
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
   depends_on                                    = [
     module.ResourceGroup.Current

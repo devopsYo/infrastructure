@@ -122,15 +122,7 @@ config = {
             account_tier                                 = "Standard"
             account_replication_type                     = "LRS"
             network_rules_default_action                 = "Deny"   
-            public_network_access_enabled                = false                            
-            private_endpoint_enable                      = 0
-            private_dns_enable                           = 0
-            private_endpoint_config                      = {
-                name                                            = "saexp-ep-001"
-                private_service_connection_subresource_names    = ["blob"]
-                private_service_connection_is_manual_connection = false
-                private_dns_zone_group_name                     = "saexp-ep-001-dns-zone-group-001"
-            }   
+            public_network_access_enabled                = false                             
         }]      
         web_app_config               = {     
             name                                         = "wapp-001"

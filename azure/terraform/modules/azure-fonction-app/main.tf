@@ -1,7 +1,6 @@
 module "StorageAccount" {
   source                              = "../../modules/azure-storage-account"
   storage_account_config              = var.fcn_app_config.storage_account_config
-  storage_account_config_dependency   = var.fcn_app_config_dependency.storage_account_config_dependency
   rg_config                           = var.rg_config
 }
 
