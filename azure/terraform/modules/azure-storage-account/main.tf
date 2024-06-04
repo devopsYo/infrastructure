@@ -11,13 +11,14 @@ resource "azurerm_storage_account" "StorageAccount" {
   }
 }
 
-
+/*
 module "PrivateDnsZone" {
   source                                        = "../../modules/azure-private-dns-zone"
   count                                         = var.storage_account_config.private_dns_enable
   private_dns_zone_name                         = "${var.storage_account_config.name}${var.storage_account_config.private_dns_zone_suffix}"
   rg_config                                     = var.rg_config
 }
+*/
 
 
 
