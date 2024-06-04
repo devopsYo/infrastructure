@@ -5,7 +5,7 @@ config = {
         rg_config                     = {   
             prefix                                     = "lv-fr-alpha"
             location                                   = "France Central"
-            name                                       = "rg-001"  
+            name                                       = "rg"  
         }             
         vnet_config                   = {     
             name                                         = "vnet-001"
@@ -124,13 +124,10 @@ config = {
             network_rules_default_action                 = "Deny"   
             public_network_access_enabled                = false                             
         }]   
-        ase_config                   = {         
-            name                                         = "ase-001"
-            internal_load_balancing_mode                 = "Web, Publishing"
-            zone_redundant                               = false
-            asp_name                                     = "ase-001-asp"
-            asp_os_type                                  = "Linux"
-            asp_sku_name                                 = "I1v2"
+        asp_config                   = {         
+            name                                     = "asp"
+            os_type                                  = "Linux"
+            sku_name                                 = "B1"
             worker_count                                 = 1
         }     
         web_app_config               = {     

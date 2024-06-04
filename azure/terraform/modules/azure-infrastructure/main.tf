@@ -137,10 +137,10 @@ module "StorageAccountList" {
   ]
 }
 
-module "Ase" {
-  source                                        = "../../modules/azure-ase"
+module "Asp" {
+  source                                        = "../../modules/azure-asp"
   count                                         = length(var.infra_config.plaque_list)
-  ase_config                                    = var.infra_config.plaque_list[count.index].ase_config
+  asp_config                                    = var.infra_config.plaque_list[count.index].asp_config
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
   depends_on                                    = [
     module.ResourceGroup.Current,

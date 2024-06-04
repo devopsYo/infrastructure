@@ -1,11 +1,8 @@
-variable "ase_config" {
+variable "asp_config" {
     type = object({
         name                            = string
-        internal_load_balancing_mode    = string
-        zone_redundant                  = bool
-        asp_name                        = string
-        asp_os_type                     = string
-        asp_sku_name                    = string
+        os_type                         = string
+        sku_name                        = string
         worker_count                    = number
     })
 }
