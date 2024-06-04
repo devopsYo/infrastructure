@@ -4,7 +4,7 @@ config = {
     {      
         rg_config                     = {   
             prefix                                     = "lv-fr"
-            location                                   = "France"
+            location                                   = "France Central"
             name                                       = "rg-001"  
         }             
         vnet_config                   = {     
