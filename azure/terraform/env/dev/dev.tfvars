@@ -134,7 +134,7 @@ config = {
             worker_count                                 = 1
         }     
         web_app_config               = {     
-            name                                         = "wapp-001"
+            name                                         = "alpha-configurator-wapp-001"
             https_only                                   = true
             always_on                                    = false
             minimum_tls_version                          = "1.2"
@@ -142,7 +142,7 @@ config = {
             docker_image                                 = "lv-fr.azurecr.io/threekit-alpha-internal"
             docker_image_tag                             = "latest"
             identity_type                                = "UserAssigned"
-            node_version                                 = "18-lts"
+            node_version                                 = "20-lts"
             app_settings             = {
             }
         }

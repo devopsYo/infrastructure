@@ -1,5 +1,5 @@
 #!/bin/sh
 
-$varFile = ${ENV}.tfvars
+varFile=$TFVARS
 
 terraform apply -auto-approve -var-file="$varFile"
