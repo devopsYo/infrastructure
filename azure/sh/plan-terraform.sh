@@ -1,6 +1,6 @@
 #!/bin/sh
 
-$varFile = $TFVARS
+$varFile=$TFVARS
 
 terraform plan -var-file="$varFile"
 
