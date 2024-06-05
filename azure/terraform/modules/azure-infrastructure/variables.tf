@@ -161,7 +161,18 @@ variable "infra_config" {
                   name                                                    = string 
                   application_type                                        = string
                 })                       
-            }))       
+            }))  
+            web_pub_sub_config            = object({
+                name                                      = string
+                sku                                       = string
+                capacity                                  = number
+                public_network_access_enabled             = bool
+                live_trace                                = object({
+                    enabled                                            = bool
+                    messaging_logs_enabled                             = bool
+                    connectivity_logs_enabled                          = bool
+                })
+            })      
             kv_config                           = object({
                 name                                          = string
                 private_dns_zone_suffix                       = string

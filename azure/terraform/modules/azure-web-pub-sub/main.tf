@@ -1,17 +1,17 @@
 resource "azurerm_web_pubsub" "WebPubSub" {
-  name                = "tfex-webpubsub"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = "${var.rg_config.prefix}-${var.web_pub_sub_config.name}"
+  location            = var.rg_config.location
+  resource_group_name = "${var.rg_config.prefix}-${var.rg_config.name}"
 
-  sku      = "Standard_S1"
-  capacity = 1
+  sku      = var.web_pub_sub_config.sku
+  capacity = var.web_pub_sub_config.capacity
 
-  public_network_access_enabled = true
+  public_network_access_enabled = var.web_pub_sub_config.public_network_access_enabled
 
   live_trace {
-    enabled                   = true
-    messaging_logs_enabled    = true
-    connectivity_logs_enabled = false
+    enabled                   = var.web_pub_sub_config.live_trace.enabled
+    messaging_logs_enabled    = var.web_pub_sub_config.live_trace.messaging_logs_enabled
+    connectivity_logs_enabled = var.web_pub_sub_config.live_trace.connectivity_logs_enabled
   }
 
 }
