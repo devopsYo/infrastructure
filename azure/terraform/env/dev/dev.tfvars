@@ -3,7 +3,7 @@ config = {
     plaque_list = [   
     {      
         rg_config                     = {   
-            prefix                                     = "lv"
+            prefix                                     = "lv-threekit"
             location                                   = "France Central"
             name                                       = "dev"  
         }             
