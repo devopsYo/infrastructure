@@ -11,10 +11,6 @@ variable "config" {
                 name                                          = string
                 address_space                                 = list(string)
             })    
-            ssh_key_config              = object({
-                name                                          = string
-                public_key                                    = string
-            })
             subnet_sec_config             = object({
                 name                                          = string
                 address_prefixes                              = list(string)

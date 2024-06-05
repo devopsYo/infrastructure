@@ -10,10 +10,6 @@ config = {
         vnet_config                   = {     
             name                                         = "vnet-001"
             address_space                                = ["10.231.3.0/24"]
-        }  
-        ssh_key_config                = {
-            name                                          = "ssh-pub-key-001"
-            public_key                                    = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDP1ruYwIfM7SAg/HGk1Z+mcyVFPwAEB+67FaeaxVULZiYxS27wKR23jT/LF8Dxa9YL9yh07Igg/zbpHWlsYSu3IK//kUC47mCvodLUrnCWKqqPLsTybYSviYU6VNtpztCrXz+c+V2+AtB6mLt7kGw6Hc5c45WT9DtGr94DOgUQn/G8+eMfe1/PNrpQkuo3lOR0jBdPxxaNzSDuQzZERhJ4PAf5Iq4/sikAsF6v6HyRNyHXGR0koprgOmPftLqW71InY4GpmBxYeTNxoDZz3C9DiqIgmeqLmdhlEL7KK3TTrQBwsisQGVB2nW724RAW3MTmG/5SpLZ9TrKPHgCY9kjnPxcbZA0+BozIKhGYMETK+B8XRPYp+g2rrh3/SV0gSP8LbiRGp0LOY9iy1+3vdMrePHWdLhvpe3rlOMTQcFndRBl9fUkk0QnJKsxuJAApS0DH95vD71PV2QqH4XZR1EiSeVha/G+GhYjyf/CKddvU4J4NCsUiw/dRU5KzZ2v1TME= generated-by-azure"
         }   
         subnet_man_config              = {
             name                                         = "lv-fr-man-001"
@@ -178,7 +174,7 @@ config = {
             node_version                                 = "20-lts"
             app_settings             = {
             }
-            app_insights_config              = {
+            app_insights             = {
               name                                    = "app-insights"
               application_type                        = "Node.JS"
             }

@@ -143,7 +143,7 @@ module "Asp" {
   asp_config                                    = var.infra_config.plaque_list[count.index].asp_config
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
   depends_on                                    = [
-    module.ResourceGroup.Current,
+    module.ResourceGroup.Current
   ]
 }
 
@@ -164,8 +164,21 @@ module "WebApp" {
   ]
 }
 
-
-
+/*
+module "WebPubSub" {
+  source                                        = "../../modules/azure-web-pub-sub"
+  count                                         = length(var.infra_config.plaque_list)
+  web_app_list_config                           = var.infra_config.plaque_list[count.index].web_app_list_config  
+  web_app_config_dependency                     = {
+      service_plan_id                           = module.Asp[count.index].AppServicePlan.id
+  }
+  //identity_ids                                  = [ data.azurerm_user_assigned_identity.UserManagedIdentity.id ]
+  //container_registry_managed_identity_client_id = data.azurerm_user_assigned_identity.UserManagedIdentity.client_id
+  rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
+  depends_on                                    = [
+    module.ResourceGroup.Current
+  ]
+}*/
 
 
 module "KeyVault" {
