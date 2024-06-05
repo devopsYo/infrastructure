@@ -149,7 +149,7 @@ module "Asp" {
 
 module "AppInsights" {
   source                                        = "../../modules/azure-application-insights"
-  app_insights_config                           = var.var.infra_config.plaque_list[count.index].app_insights_config
+  app_insights_config                           = var.infra_config.plaque_list[count.index].app_insights_config
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
 }
 
