@@ -180,7 +180,7 @@ config = {
             }
         },
         {     
-            name                                         = "socket.io-wa"
+            name                                         = "socket-io-wa"
             https_only                                   = true
             always_on                                    = false
             minimum_tls_version                          = "1.2"
