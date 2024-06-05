@@ -178,6 +178,23 @@ config = {
               name                                    = "app-insights"
               application_type                        = "Node.JS"
             }
+        },
+        {     
+            name                                         = "socket.io-wa"
+            https_only                                   = true
+            always_on                                    = false
+            minimum_tls_version                          = "1.2"
+            container_registry_use_managed_identity      = true
+            docker_image                                 = "lv-fr.azurecr.io/socket.io-wa"
+            docker_image_tag                             = "latest"
+            identity_type                                = "UserAssigned"
+            node_version                                 = "20-lts"
+            app_settings             = {
+            }
+            app_insights             = {
+              name                                    = "app-insights"
+              application_type                        = "Node.JS"
+            }
         }]
         web_pub_sub_config                      = {
             name                                     = "web-pub-sub"
