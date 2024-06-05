@@ -19,6 +19,15 @@ resource "azurerm_linux_web_app" "WebApp" {
       identity_ids                                  = var.web_app_config.identity_ids
     }*/
   }   
-  app_settings                                      = var.web_app_config_dependency.app_settings                  
+  app_settings                                      = merge(
+    var.web_app_config.app_settings,
+    module.AppInsights.AppSettings  
+  )              
   
+}
+
+module "AppInsights" {
+  source                                        = "../../modules/azure-application-insights"
+  app_insights_config                           = var.web_app_config.app_insights
+  rg_config                                     = var.rg_config
 }

@@ -151,7 +151,7 @@ variable "config" {
                 sku_name                                      = string 
                 worker_count                                  = number            
             })             
-            web_app_config                  = object({
+            web_app_list_config                  = list(object({
                 name                                          = string
                 https_only                                    = bool
                 always_on                                     = bool
@@ -161,12 +161,12 @@ variable "config" {
                 docker_image_tag                              = string
                 identity_type                                 = string
                 node_version                                  = string
-                app_settings                                  = map(string)                        
-            })   
-            app_insights_config              = object({
-                name                                          = string
-                application_type                              = string
-            })
+                app_settings                                  = map(string)
+                app_insights                                  = object({
+                  name                                                    = string 
+                  application_type                                        = string
+                })                       
+            }))   
             kv_config                           = object({
                 name                                          = string
                 private_dns_zone_suffix                       = string

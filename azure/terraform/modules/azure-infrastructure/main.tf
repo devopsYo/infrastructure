@@ -150,15 +150,11 @@ module "Asp" {
 
 
 module "WebApp" {
-  source                                        = "../../modules/azure-linux-web-app"
+  source                                        = "../../modules/azure-linux-web-app-list"
   count                                         = length(var.infra_config.plaque_list)
-  web_app_config                                = var.infra_config.plaque_list[count.index].web_app_config  
+  web_app_list_config                           = var.infra_config.plaque_list[count.index].web_app_list_config  
   web_app_config_dependency                     = {
       service_plan_id                           = module.Asp[count.index].AppServicePlan.id
-      app_settings                              = merge(
-        var.infra_config.plaque_list[count.index].web_app_config.app_settings,
-        module.AppInsights[count.index].AppSettings
-      )
   }
   //identity_ids                                  = [ data.azurerm_user_assigned_identity.UserManagedIdentity.id ]
   //container_registry_managed_identity_client_id = data.azurerm_user_assigned_identity.UserManagedIdentity.client_id
@@ -169,15 +165,7 @@ module "WebApp" {
 }
 
 
-module "AppInsights" {
-  source                                        = "../../modules/azure-application-insights"
-  count                                         = length(var.infra_config.plaque_list)
-  app_insights_config                           = var.infra_config.plaque_list[count.index].app_insights_config
-  rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
-  depends_on                                    = [
-    module.ResourceGroup.Current
-  ]
-}
+
 
 
 module "KeyVault" {

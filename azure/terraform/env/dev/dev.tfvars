@@ -149,7 +149,7 @@ config = {
             sku_name                                 = "B1"
             worker_count                                 = 1
         }     
-        web_app_config               = {     
+        web_app_list_config               = [{     
             name                                         = "configurator-wa"
             https_only                                   = true
             always_on                                    = false
@@ -161,11 +161,28 @@ config = {
             node_version                                 = "20-lts"
             app_settings             = {
             }
-        }
-        app_insights_config              = {
-            name                                    = "app-insights"
-            application_type                        = "Node.JS"
-        }
+            app_insights_config              = {
+              name                                    = "app-insights"
+              application_type                        = "Node.JS"
+            }
+        },
+        {     
+            name                                         = "resume-wa"
+            https_only                                   = true
+            always_on                                    = false
+            minimum_tls_version                          = "1.2"
+            container_registry_use_managed_identity      = true
+            docker_image                                 = "lv-fr.azurecr.io/resume-wa"
+            docker_image_tag                             = "latest"
+            identity_type                                = "UserAssigned"
+            node_version                                 = "20-lts"
+            app_settings             = {
+            }
+            app_insights_config              = {
+              name                                    = "app-insights"
+              application_type                        = "Node.JS"
+            }
+        }]
         kv_config                               = {
             name                                       = "kv"
             private_dns_zone_suffix                    = ".vault.azure.net"

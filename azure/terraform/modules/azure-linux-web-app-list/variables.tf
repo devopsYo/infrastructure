@@ -1,5 +1,5 @@
-variable "web_app_config" {
-    type = object({
+variable "web_app_list_config" {
+    type = list(object({
         name                                          = string
         https_only                                    = bool
         always_on                                     = bool
@@ -13,10 +13,9 @@ variable "web_app_config" {
         app_insights                                  = object({
           name                                                    = string 
           application_type                                        = string
-        })
-    })
+        })                       
+    }))
 }
-
 
 variable "web_app_config_dependency" {
     type = object({
@@ -24,11 +23,10 @@ variable "web_app_config_dependency" {
     })
 }
 
-
 variable "rg_config" {
     type = object({
-        name          = string
-        location      = string
-        prefix        = string 
+        name                          = string
+        location                      = string
+        prefix                        = string 
     })
 }
