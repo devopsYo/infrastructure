@@ -149,8 +149,12 @@ module "Asp" {
 
 module "AppInsights" {
   source                                        = "../../modules/azure-application-insights"
+  count                                         = length(var.infra_config.plaque_list)
   app_insights_config                           = var.infra_config.plaque_list[count.index].app_insights_config
   rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
+    depends_on                                    = [
+    module.ResourceGroup.Current
+  ]
 }
 
 
