@@ -17,9 +17,10 @@ variable "web_app_list_config" {
     }))
 }
 
-variable "web_app_config_dependency" {
+variable "web_app_list_config_dependency" {
     type = object({
         service_plan_id                               = string
+        app_settings_app_insights                     = map(string)
     })
 }
 

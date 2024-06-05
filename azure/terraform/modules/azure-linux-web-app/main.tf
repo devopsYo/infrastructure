@@ -21,13 +21,8 @@ resource "azurerm_linux_web_app" "WebApp" {
   }   
   app_settings                                      = merge(
     var.web_app_config.app_settings,
-    module.AppInsights.AppSettings  
+    var.web_app_config_dependency.app_settings_app_insights  
   )              
   
 }
 
-module "AppInsights" {
-  source                                        = "../../modules/azure-application-insights"
-  app_insights_config                           = var.web_app_config.app_insights
-  rg_config                                     = var.rg_config
-}

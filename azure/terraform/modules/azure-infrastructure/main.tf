@@ -147,14 +147,20 @@ module "Asp" {
   ]
 }
 
+module "AppInsights" {
+  source                                        = "../../modules/azure-application-insights"
+  app_insights_config                           = var.var.infra_config.plaque_list[count.index].app_insights_config
+  rg_config                                     = var.infra_config.plaque_list[count.index].rg_config
+}
 
 
-module "WebApp" {
+module "WebAppList" {
   source                                        = "../../modules/azure-linux-web-app-list"
   count                                         = length(var.infra_config.plaque_list)
   web_app_list_config                           = var.infra_config.plaque_list[count.index].web_app_list_config  
-  web_app_config_dependency                     = {
+  web_app_list_config_dependency                     = {
       service_plan_id                           = module.Asp[count.index].AppServicePlan.id
+      app_settings_app_insights                 = module.AppInsights[count.index].AppSettings                             
   }
   //identity_ids                                  = [ data.azurerm_user_assigned_identity.UserManagedIdentity.id ]
   //container_registry_managed_identity_client_id = data.azurerm_user_assigned_identity.UserManagedIdentity.client_id

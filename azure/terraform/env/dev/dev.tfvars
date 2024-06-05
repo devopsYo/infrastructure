@@ -145,6 +145,10 @@ config = {
             sku_name                                 = "B1"
             worker_count                                 = 1
         }     
+        app_insights_config             = {
+              name                                    = "app-insights"
+              application_type                        = "Node.JS"
+        }
         web_app_list_config               = [{     
             name                                         = "configurator-wa"
             https_only                                   = true
@@ -156,10 +160,6 @@ config = {
             identity_type                                = "UserAssigned"
             node_version                                 = "20-lts"
             app_settings             = {
-            }
-            app_insights             = {
-              name                                    = "configurator-app-insights"
-              application_type                        = "Node.JS"
             }
         },
         {     
@@ -174,10 +174,6 @@ config = {
             node_version                                 = "20-lts"
             app_settings             = {
             }
-            app_insights             = {
-              name                                    = "resume-app-insights"
-              application_type                        = "Node.JS"
-            }
         },
         {     
             name                                         = "socket-io-wa"
@@ -191,10 +187,6 @@ config = {
             node_version                                 = "20-lts"
             app_settings             = {
             }
-            app_insights             = {
-              name                                    = "socket-io-app-insights"
-              application_type                        = "Node.JS"
-            }
         },
         {     
             name                                         = "kitting-wa"
@@ -207,10 +199,6 @@ config = {
             identity_type                                = "UserAssigned"
             node_version                                 = "20-lts"
             app_settings             = {
-            }
-            app_insights             = {
-              name                                    = "kitting-app-insights"
-              application_type                        = "Node.JS"
             }
         }]
         web_pub_sub_config                      = {

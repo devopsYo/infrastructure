@@ -145,7 +145,11 @@ variable "infra_config" {
                 os_type                                   = string
                 sku_name                                  = string 
                 worker_count                                  = number            
-            })             
+            })     
+            app_insights_config                               = object({
+                name                                                    = string 
+                application_type                                        = string
+            })          
             web_app_list_config                  = list(object({
                 name                                          = string
                 https_only                                    = bool
@@ -156,11 +160,7 @@ variable "infra_config" {
                 docker_image_tag                              = string
                 identity_type                                 = string
                 node_version                                  = string
-                app_settings                                  = map(string)
-                app_insights                                  = object({
-                  name                                                    = string 
-                  application_type                                        = string
-                })                       
+                app_settings                                  = map(string)                  
             }))  
             web_pub_sub_config            = object({
                 name                                      = string
