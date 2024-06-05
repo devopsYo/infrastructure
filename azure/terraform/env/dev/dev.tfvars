@@ -161,7 +161,7 @@ config = {
             node_version                                 = "20-lts"
             app_settings             = {
             }
-            app_insights_config              = {
+            app_insights             = {
               name                                    = "app-insights"
               application_type                        = "Node.JS"
             }
