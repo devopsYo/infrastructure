@@ -158,7 +158,7 @@ config = {
             app_settings             = {
             }
             app_insights             = {
-              name                                    = "app-insights"
+              name                                    = "configurator-app-insights"
               application_type                        = "Node.JS"
             }
         },
@@ -175,7 +175,7 @@ config = {
             app_settings             = {
             }
             app_insights             = {
-              name                                    = "app-insights"
+              name                                    = "resume-app-insights"
               application_type                        = "Node.JS"
             }
         },
@@ -192,7 +192,7 @@ config = {
             app_settings             = {
             }
             app_insights             = {
-              name                                    = "app-insights"
+              name                                    = "socket-io-app-insights"
               application_type                        = "Node.JS"
             }
         },
@@ -209,7 +209,7 @@ config = {
             app_settings             = {
             }
             app_insights             = {
-              name                                    = "app-insights"
+              name                                    = "kitting-app-insights"
               application_type                        = "Node.JS"
             }
         }]
