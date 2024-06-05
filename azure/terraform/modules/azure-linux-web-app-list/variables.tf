@@ -9,11 +9,7 @@ variable "web_app_list_config" {
         docker_image_tag                              = string
         identity_type                                 = string
         node_version                                  = string  
-        app_settings                                  = map(string)
-        app_insights                                  = object({
-          name                                                    = string 
-          application_type                                        = string
-        })                       
+        app_settings                                  = map(string)                   
     }))
 }
 

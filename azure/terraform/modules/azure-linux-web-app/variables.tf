@@ -10,10 +10,6 @@ variable "web_app_config" {
         identity_type                                 = string
         node_version                                  = string  
         app_settings                                  = map(string)
-        app_insights                                  = object({
-          name                                                    = string 
-          application_type                                        = string
-        })
     })
 }
 
